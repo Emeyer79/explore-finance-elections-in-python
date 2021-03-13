@@ -37,23 +37,23 @@ with open(pybnk_csv) as csvfile:
     
                       
 #Create the MAX and MIN add formatting for USD
-max_inc = max(profit_change)
-min_dec = min(profit_change)
-max_inc_f = "${:,.2f}".format(max_inc)
-min_dec_f = "${:,.2f}".format(min_dec)
+max_inc_f = "${:,.2f}".format(max(profit_change))
+min_dec_f = "${:,.2f}".format(min(profit_change))
 print(max_inc_f)
 print(min_dec_f)
 
 #profit formatting and total
-sum_profit = sum(profit)
-tot_prof_f = "${:,.2f}".format(sum_profit)
+tot_prof_f = "${:,.2f}".format(sum(profit))
+print(tot_prof_f)
+
+
 
 #profit change average and  formatting
-avg_prof = round(sum(profit_change)/len(profit_change),2)
-avg_prof_f = "${:,.2f}".format(avg_prof)
+avg_prof_f = "${:,.2f}".format(round(sum(profit_change)/len(profit_change),2))
+print(avg_prof_f)
 
 
-#Index for month increase and decrease
+#Index for month increase and decrease/ add +1 because it indexes at zero.
 month_increase = profit_change.index(max(profit_change))+1
 month_decrease = profit_change.index(min(profit_change))+1
 
